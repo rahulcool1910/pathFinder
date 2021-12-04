@@ -1,21 +1,23 @@
 import { RootObject, stateType } from "../actionTypes/types";
-
+import {Node} from '../../types'
 interface RespositaryState {
     loading: boolean;
     data?: RootObject;
     message?: string
 }
 interface initialState {
+    type: stateType.search_success;
+    // payload: Node[];
+}
+interface successState {
     type: stateType.start_search;
+    payload: RootObject;
 }
 interface errorState {
     type: stateType.search_error;
-    message: string;
+    payload: Node[];
 }
-interface successState {
-    type: stateType.search_success;
-    payload: RootObject;
-}
+
 
 
 type Action = initialState | successState | errorState;
@@ -23,7 +25,7 @@ type Action = initialState | successState | errorState;
 
 
 const initialState: RespositaryState = {
-    loading: true
+    loading: true,
 }
 
 const RepositoryReduces = (
@@ -31,12 +33,7 @@ const RepositoryReduces = (
     action: | initialState | successState | errorState
 ): RespositaryState => {
     switch (action.type) {
-        case stateType.start_search:
-            return { loading: true };
-        case stateType.search_success:
-            return { loading: false, data: action.payload };
-        case stateType.search_error:
-            return { loading: false, message: action.message };
+
         default:
             return state;
     }

@@ -1,7 +1,9 @@
 export enum stateType {
-    start_search = 'start_search',
-    search_success = 'search_success',
-    search_error = 'search_error',
+    reset = "reset",
+    onClicked = "onClicked",
+    start_search="start_search",
+    search_success="start_search",
+    search_error="start_search"
 }
 
 

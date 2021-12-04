@@ -1,13 +1,17 @@
 import React from 'react';
+import Sketch from "react-p5";
 import './App.scss';
-import Test from './Components/Test';
+import { draw } from './P5js/draw';
+import { mouseClicked } from './P5js/mouseClickEvent';
+import { setup } from './P5js/setup';
 
 
 
 function App() {
+
   return (
     <div className="App">
-      <Test />
+      <Sketch setup={setup} draw={draw} className="App" mouseClicked={mouseClicked} />
     </div>
   );
 }
